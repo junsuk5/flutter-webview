@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -93,6 +94,14 @@ class WebViewExampleState extends State<WebViewExample> {
           initialUrl: 'https://flutter.dev',
           onWebViewCreated: (controller) {
             _controller = controller;
+          },
+          javascriptChannels: {
+            JavascriptChannel(
+              name: 'myChannel',
+              onMessageReceived: (JavascriptMessage message) {
+                log(message.message);
+              },
+            ),
           },
         ),
       ),
