@@ -100,6 +100,11 @@ class WebViewExampleState extends State<WebViewExample> {
               name: 'myChannel',
               onMessageReceived: (JavascriptMessage message) {
                 log(message.message);
+
+                Map<String, dynamic> json = jsonDecode(message.message);
+
+                log(json['title']);
+                log(json['body']);
               },
             ),
           },
