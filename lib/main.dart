@@ -105,6 +105,13 @@ class WebViewExampleState extends State<WebViewExample> {
 
                 log(json['title']);
                 log(json['body']);
+
+                final String title = json['title'];
+                final String body = json['body'];
+
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('$title : $body')),
+                );
               },
             ),
           },
